@@ -22,7 +22,7 @@ const Cart = (props) => {
             <small>Product Price: ${total.toFixed(2)}</small><br/>
             <small>Shipping Cost: {shipping}</small><br/>
             <small>Tax + VAT: ${tax.toFixed(2)}</small><br/>
-            <small className="text-danger">Total price: ${(total + tax + shipping).toFixed(2)}</small><br/>
+            <small className="text-danger">Total price: ${(total + tax + shipping).toFixed(2)}</small><br/><br/>
             <button className="main-button">Review Your Order</button>
         </div>
     );

@@ -24,6 +24,7 @@ const Shop = () => {
                 {
                     products.map(product => <Product 
                         product={product} 
+                        cardAddProduct={true}
                         handleAddToCart={handleAddToCart}
                         ></Product>)
                 }
