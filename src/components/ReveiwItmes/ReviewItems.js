@@ -2,6 +2,7 @@ import React from 'react';
 import { Row } from 'react-bootstrap';
 
 const ReviewItems = (props) => {
+    console.log(props)
     const product = props.product;
     const {name , quantity, price, key} =product;
     const reviewItemsStyle={
