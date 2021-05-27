@@ -4,16 +4,29 @@ import fakeData from '../../fakeData';
 import Product from '../Product/Product';
 import Cart from '../Cart/Cart';
 import Header from '../Header/Header';
-import { addToDatabaseCart } from '../../utilities/databaseManager';
+import { addToDatabaseCart, getDatabaseCart } from '../../utilities/databaseManager';
 
 const Shop = () => {
     const first10 = fakeData.slice(0,10);
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState(first10);
     const [cart, setCart] = useState([]);
+
+    useEffect(()=> {
+        const saveCart = getDatabaseCart();
+        const previewsKey = Object.keys(saveCart);
+       const preiwscart = previewsKey.map(exestinKey => {
+           const product = fakeData.find(pd => pd.key === exestinKey);
+           product.quantity = saveCart[exestinKey];
+           return product;
+         })
+        // console.log(preiwscart);
+          setCart(preiwscart);
+          
+      }, [])
 
     const handleAddToCart = product => {
        const toBeAddedKey = product.key;
-       console.log(product);
+    //    console.log(product);
        const sameProduct = cart.find(pd => pd.key === toBeAddedKey);
        let count =1 ;
        let newCart;
@@ -31,11 +44,6 @@ const Shop = () => {
           setCart(newCart);
         addToDatabaseCart(product.key , count);
     }
-
-    useEffect(()=> {
-        // console.log(fakeData)
-        setProducts(first10);
-    }, [])
     return (
         <div className="twin-container">
             <div className="product-container">

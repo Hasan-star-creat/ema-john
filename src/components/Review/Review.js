@@ -15,7 +15,7 @@ const Review = () => {
     useEffect(() => {
         const saveCart = getDatabaseCart();
         const productKeys = Object.keys(saveCart);
-        console.log(saveCart);
+        // console.log(saveCart);
         const cartProducts = productKeys.map(key => {
            const product = fakeData.find(pd => pd.key === key)
            product.quantity = saveCart[key] ;
