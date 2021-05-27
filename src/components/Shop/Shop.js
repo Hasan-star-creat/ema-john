@@ -25,7 +25,7 @@ const Shop = () => {
         setProducts(first10);
     }, [])
     return (
-        <div className="shop-container">
+        <div className="twin-container">
             <div className="product-container">
                 {
                     products.map(product => <Product 
