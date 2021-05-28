@@ -14,7 +14,7 @@ const Header = () => {
             <nav>
                 <a href="/shop">Shop</a>
                 <a href="/review">Order Review</a>
-                <a href="/inventory">Manage Inventory</a>
+                <a href="/inventory">Manage Inventory Here</a>
             </nav>
             <>
   <Navbar bg="dark" variant="dark">
