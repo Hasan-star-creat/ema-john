@@ -4,6 +4,7 @@ import { getDatabaseCart, processOrder, removeFromDatabaseCart } from '../../uti
 import Cart from '../Cart/Cart';
 import ReviewItems from '../ReveiwItmes/ReviewItems';
 import happyImage from '../../images/giphy.gif';
+import { useHistory } from 'react-router';
 
 
 const Review = () => {
@@ -26,14 +27,14 @@ const Review = () => {
            setCart(cartProducts);
     },[]);
 
-    let thank; 
+          let thank; 
           if(placeOrder){
                    thank = <img src={happyImage} alt="happpy image" />
-    }
-         const handlePlaceOrder = () => {
-             setCart([]);
-             setPlaceOrder(true)
-             processOrder()
+                       }
+         const history = useHistory();
+         const handleProceedCheckout = () => {
+            history.push('/login')
+
          }
       // total product show use of reduce method
     const  Quantity = cart.reduce((sum , element) => sum + element.quantity , 0 )
@@ -51,7 +52,7 @@ const Review = () => {
             </div>
             <div className="card-container">
                   <Cart cart={cart}>
-                  <button onClick={handlePlaceOrder} className="main-button">Place Order</button>
+                  <button onClick={handleProceedCheckout} className="main-button">Proceed Checkout</button>
                   </Cart>
             </div>
             </div>   
