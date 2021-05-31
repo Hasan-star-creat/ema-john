@@ -1,0 +1,13 @@
+.ship-from{
+    margin: 30px 100px;
+}
+.ship-from input{
+ display: block;
+ margin-top: 30px;
+ padding: 5px;
+ border-radius: 5px;
+ width: 300px;
+}
+.error{
+    color: red;
+}
