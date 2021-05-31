@@ -33,7 +33,7 @@ const Review = () => {
                        }
          const history = useHistory();
          const handleProceedCheckout = () => {
-            history.push('/login')
+            history.push('/shipment')
 
          }
       // total product show use of reduce method

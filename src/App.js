@@ -10,9 +10,15 @@ import Product from './components/Product/Product';
 import ProductDettails from './components/ProductDettails/ProductDettails';
 import Shipment from './components/Shipment/Shipment';
 import LogedIn from './components/LogedIn/LogedIn';
+import { createContext, useState } from 'react';
+import PrivetRout from './components/PrivetRout/PrivetRout';
+
+export const userContext = createContext();
 
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({})
   return (
+      <userContext.Provider value ={[loggedInUser ,setLoggedInUser]}>
     <Router>
       <Header></Header>
 
@@ -23,14 +29,14 @@ function App() {
         <Route path="/review">
           <Review />
         </Route>
-        <Route path="/inventory">
+        <PrivetRout path="/inventory">
           <Inventory></Inventory>
-        </Route>
+        </PrivetRout>
+        <PrivetRout path="/shipment">
+          <Shipment></Shipment>
+        </PrivetRout>
         <Route path="/login">
           <LogedIn></LogedIn>
-        </Route>
-        <Route path="/shipment">
-          <Shipment></Shipment>
         </Route>
         <Route path="/product/:productkey">
              <ProductDettails></ProductDettails>
@@ -43,6 +49,7 @@ function App() {
         </Route>
       </Switch>
     </Router>
+    </userContext.Provider>
   );
 }
 

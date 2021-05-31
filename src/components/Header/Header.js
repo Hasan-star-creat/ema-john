@@ -1,20 +1,25 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import logo from '../../images/logo.png';
 import { Button , Form, Nav, Navbar, FormControl ,Logo} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import './Header.css';
 import Product from '../Product/Product';
+import { Link } from 'react-router-dom';
+import { userContext } from '../../App';
 
 const Header = () => {
     const [cart, setCart] = useState([]);
-    return (
+    const [loggedInUser, setLoggedInUser] = useContext(userContext)
+
+    return ( 
         <div className="header">
             <img src={logo} alt=""/>
             <nav>
-                <a href="/shop">Shop</a>
-                <a href="/review">Order Review</a>
-                <a href="/inventory">Manage Inventory Here</a>
+                <Link to="/shop">Shop</Link>
+                <Link to="/review">Order Review</Link>
+                <Link to="/inventory">Manage Inventory Here</Link>
+                <button onClick={ () => setLoggedInUser({}) }>Sign Out</button>
             </nav>
             <>
   <Navbar bg="dark" variant="dark">
