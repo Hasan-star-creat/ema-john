@@ -1,4 +1,4 @@
-Heroku live site link : https://ema-john-application.herokuapp.com/
+Heroku live site link : https://ema-john-ecomarce.web.app/
 
 feature:
 1. product added 
