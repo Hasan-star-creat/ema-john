@@ -14,6 +14,7 @@ const Header = () => {
 
     return ( 
         <div className="header">
+          <h4>{loggedInUser.email}</h4>
             <img src={logo} alt=""/>
             <nav>
                 <Link to="/shop">Shop</Link>

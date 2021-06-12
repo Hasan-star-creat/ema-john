@@ -21,6 +21,7 @@ function LogedIn() {
     photo: "",
   });
 
+    // privet rout set 
   const [loggedInUser, setLoggedInUser] = useContext(userContext);
   const history = useHistory();
   const location = useLocation();
@@ -42,6 +43,8 @@ function LogedIn() {
           photo: photoURL,
         };
         setUser(isSignedUser);
+        setLoggedInUser(isSignedUser);
+        history.replace(from);
         console.log(displayName, email, photoURL);
       })
       .catch((err) => {
@@ -146,7 +149,16 @@ function LogedIn() {
       .auth()
       .signInWithPopup(fbProvider)
       .then((res) => {
-        console.log(res.user);
+        const { displayName, email, photoURL } = res.user;
+        const isSignedUser = {
+          isSignedIn: true,
+          name: displayName,
+          email: email,
+          photo: photoURL,
+        };
+        setUser(isSignedUser);
+        setLoggedInUser(isSignedUser);
+        history.replace(from);
       })
       .catch((error) => {
         var errorMessage = error.message;

@@ -15,16 +15,20 @@ const Review = () => {
         removeFromDatabaseCart(pdKeys);
         setCart(newCart);
     }
+        document.title = "Review"
     useEffect(() => {
         const saveCart = getDatabaseCart();
         const productKeys = Object.keys(saveCart);
-        // console.log(saveCart);
-        const cartProducts = productKeys.map(key => {
-           const product = fakeData.find(pd => pd.key === key)
-           product.quantity = saveCart[key] ;
-           return product;
-        })
-           setCart(cartProducts);
+         
+          fetch('http://localhost:5000/productsByKeys', {
+            method: "POST",
+            headers: {
+              "Content-type": "application/json",
+            },
+            body: JSON.stringify(productKeys),
+          })
+            .then((res) => res.json())
+            .then((data) => setCart(data));
     },[]);
 
           let thank; 

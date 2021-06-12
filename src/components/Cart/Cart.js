@@ -4,7 +4,7 @@ import './Cart.css';
 
 const Cart = (props) => {
     const cart = props.cart;
-    const total = cart.reduce( (total,prd) => total + prd.price * prd.quantity,0)
+    const total = cart.reduce( (tol,prd) => tol + prd.price * prd.quantity,0)
     let tax = total * 0.1;
     let shipping = 0;
     if(total > 35){
