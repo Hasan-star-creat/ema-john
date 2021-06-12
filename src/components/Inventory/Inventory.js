@@ -29,7 +29,7 @@ const Inventory = () => {
      
     const handleAddProducts = () => {
         const addPd = { ...products};
-        fetch('http://localhost:5000/addProducts', {
+        fetch('https://evening-ravine-87925.herokuapp.com/addProducts', {
             method: 'POST',
             headers:{ 
                 'Content-Type': 'application/json'

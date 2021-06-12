@@ -15,7 +15,7 @@ const Shop = () => {
   document.title = "shop";
      
   useEffect(() => {
-    fetch('http://localhost:5000/products')
+    fetch('https://evening-ravine-87925.herokuapp.com/products')
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
