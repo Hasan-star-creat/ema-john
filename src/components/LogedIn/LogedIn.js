@@ -21,6 +21,18 @@ function LogedIn() {
     photo: "",
   });
 
+  const setUserToken = () => {
+    firebase
+      .auth()
+      .currentUser.getIdToken(/* forceRefresh */ true)
+      .then(function (idToken) {
+        sessionStorage.setItem('token', idToken)
+      })
+      .catch(function (error) {
+        // Handle error
+      });
+  }
+
     // privet rout set 
   const [loggedInUser, setLoggedInUser] = useContext(userContext);
   const history = useHistory();
@@ -45,7 +57,7 @@ function LogedIn() {
         setUser(isSignedUser);
         setLoggedInUser(isSignedUser);
         history.replace(from);
-        console.log(displayName, email, photoURL);
+         setUserToken()
       })
       .catch((err) => {
         console.log(err.code);

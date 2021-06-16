@@ -5,6 +5,7 @@ import Product from '../Product/Product';
 
 const ProductDettails = () => {
     document.title = "ema-john/details"
+    
     const {productkey} = useParams();
     const [product, setProduct] = useState({});
 
